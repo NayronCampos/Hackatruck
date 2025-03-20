@@ -3,11 +3,12 @@
 //  Desafio3
 //  Nayron Campos
 //  Created by Turma02-25 on 19/03/25.
-//
 
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingAlert = false
+    @State private var name: String = ""
     var body: some View {
         VStack {
             ZStack{
@@ -18,9 +19,16 @@ struct ContentView: View {
                 
                 ZStack{
                     VStack{
+                        Spacer()
+                            .frame(height: 30)
+                        
+                            Text("Fala jovem, su name is:")
+                            TextField("your name",text: $name)
+                                .foregroundColor(.black)
+                                .frame(width: 100)
                         
                         Spacer()
-                            .frame(height: 10)
+                            .frame(height: 200)
                         
                         Image("logo")
                             .resizable()
@@ -33,13 +41,24 @@ struct ContentView: View {
                             .frame(width: 200, height: 100)
                         
                         Spacer()
-                            .frame(height: 250)
+                            .frame(height: 259)
                         
-                            Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
-                                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                                Button("Entrar") {
+                                    showingAlert = true
+                                }
+                                .alert(isPresented:$showingAlert) {
+                                    Alert(
+                                        title: Text("ALERTA!"),
+                                        message: Text("Você irá iniciar o curso agora! Deseja continuar?"),
+                                        primaryButton: .destructive(Text("Continuar")) {
+                                            print("Deleting...")
+                                        },
+                                        secondaryButton: .cancel()
+                                    )
+                                
                             }
                         Spacer()
-                            .frame(height:80)
+                            .frame(height:20)
                         
                     }
                 }
