@@ -21,12 +21,12 @@ struct ContentView: View {
                     VStack{
                         Spacer()
                             .frame(height: 30)
-                        
+                        HStack(alignment: .center){
                             Text("Fala jovem, su name is:")
                             TextField("your name",text: $name)
                                 .foregroundColor(.black)
                                 .frame(width: 100)
-                        
+                        }
                         Spacer()
                             .frame(height: 200)
                         
