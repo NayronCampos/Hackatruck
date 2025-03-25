@@ -26,17 +26,20 @@ struct ContentView: View {
                     
                     VStack{
                         ZStack{
-                            RoundedRectangle(cornerRadius: 9.0)
-                                .foregroundColor(.pink)
-                                .frame(width: 200, height: 90)
-                            Text("Modo 1")
-                                .foregroundColor(.white)
+                            
+                                RoundedRectangle(cornerRadius: 9.0)
+                                    .foregroundColor(.pink)
+                                    .frame(width: 200, height: 90)
+                                NavigationLink(destination:modoUmView()){Text("Modo 1")
+                                    .foregroundColor(.white)
+                            }
                         }
                         ZStack{
                             RoundedRectangle(cornerRadius: 9.0)
                                 .foregroundColor(.pink)
                                 .frame(width: 200, height: 90)
-                            Text("Modo 2")
+                            NavigationLink(destination:modoDoisView()){
+                                Text("Modo 2")}
                                 .foregroundColor(.white)
                         }
                         ZStack{
